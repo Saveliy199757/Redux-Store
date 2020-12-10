@@ -1,16 +1,24 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './app.css';
-import { withDataStoreService } from '../hoc';
+import {HomePage, CartPage} from "../pages";
 
-const App = ({dataStoreService}) => {
 
-    console.log(dataStoreService.getData())
+const App = () => {
 
-    return (
-      <main>
-          <h1>Главная</h1>
-      </main>
+  return (
+   <Switch>
+       <Route
+           path='/'
+           exact
+           component={HomePage}
+       />
+       <Route
+           path='/cart'
+           component={CartPage}
+       />
+   </Switch>
     );
 }
 
-export default withDataStoreService()(App);
+export default App;
